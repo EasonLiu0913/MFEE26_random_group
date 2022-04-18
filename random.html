@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>random</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+            integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+            crossorigin="anonymous"
+        />
+        <style>
+            .container-fluid {
+                margin-top: 50px;
+            }
+
+            .table {
+                border: 1px solid red;
+                display: flex;
+                flex-wrap: wrap;
+                font-size: 3rem;
+            }
+
+            p {
+                margin: 5px 0px;
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row"></div>
+        </div>
+
+        <script>
+            function shuffle(array) {
+                let currentIndex = array.length,
+                    randomIndex;
+
+                // While there remain elements to shuffle.
+                while (currentIndex != 0) {
+                    // Pick a remaining element.
+                    randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex--;
+
+                    // And swap it with the current element.
+                    [array[currentIndex], array[randomIndex]] = [
+                        array[randomIndex],
+                        array[currentIndex],
+                    ];
+                }
+
+                return array;
+            }
+
+            // Used like so
+            const studentNumbersArray = [];
+            for (let i = 0; i < 44; i++) {
+                studentNumbersArray.push(i);
+            }
+            shuffle(studentNumbersArray);
+
+            const studentNamesArray = [
+                '刁彥瑜',
+                '劉偉忠',
+                '夏亞凡',
+                '陳柏安',
+                '柳丞恩',
+                '簡竹佑',
+                '周芃彣',
+                '陳宗佑',
+                '徐敏嘉',
+                '李昀',
+                '李瑀翎',
+                '張容瑄',
+                '賴志嘉',
+                '王博平',
+                '顏子琦',
+                '吳志輝',
+                '胡盟鑫',
+                '曾家芸',
+                '謝永德',
+                '汪興哲',
+                '謝宸睿',
+                '虞承翰',
+                '余昕',
+                '張兆軒',
+                '劉郁貞',
+                '陳柏翰',
+                '劉聿銘',
+                '李秉翰',
+                '戴偉民',
+                '李昱蓉',
+                '黃亮禎',
+                '廖娟敏',
+                '邱慧敏',
+                '林宸皞',
+                '郭俊宏',
+                '顏睦天',
+                '游書豪',
+                '莊惟',
+                '徐佑慈',
+                '羅貫文',
+                '胡雅芯',
+                '盧奕辰',
+                '游蕙如',
+                '林子揚',
+            ];
+
+            const row = document.querySelector('.row');
+            let html = '';
+            studentNumbersArray.forEach((studentNumber, index) => {
+                const studentName = studentNamesArray[studentNumber];
+                const student = `${studentNumber + 1} ${studentName}`;
+                if (index % 11 === 0) {
+                    html += `<div class="col-6"><div class="table">`;
+                } else if (index % 11 === 10) {
+                    html += `<p class="col-3">${student}</p></div></div>`;
+                } else {
+                    html += `<p class="col-3">${student}</p>`;
+                }
+
+                console.log(student);
+            });
+
+            row.innerHTML = html;
+        </script>
+    </body>
+</html>
