@@ -58,7 +58,6 @@
                 return array;
             }
 
-            // Used like so
             const studentNumbersArray = [];
             for (let i = 0; i < 44; i++) {
                 studentNumbersArray.push(i);
@@ -114,20 +113,37 @@
 
             const row = document.querySelector('.row');
             let html = '';
-            studentNumbersArray.forEach((studentNumber, index) => {
-                const studentName = studentNamesArray[studentNumber];
-                const student = `${studentNumber + 1} ${studentName}`;
-                if (index % 11 === 0) {
-                    html += `<div class="col-6"><div class="table">`;
-                } else if (index % 11 === 10) {
-                    html += `<div class="col-3"><p>${student}</p></div></div></div>`;
-                } else {
+            // studentNumbersArray.forEach((studentNumber, index) => {
+            //     const studentName = studentNamesArray[studentNumber];
+            //     const student = `${studentNumber + 1} ${studentName}`;
+            //     if (index % 11 === 0) {
+            //         html += `<div class="col-6"><div class="table">`;
+            //     } else if (index % 11 === 10) {
+            //         html += `<div class="col-3"><p>${student}</p></div></div></div>`;
+            //     } else {
+            //         html += `<div class="col-3"><p>${student}</p></div>`;
+            //     }
+
+            //     console.log(student);
+            // });
+
+            function createTable(maxNum) {
+                html += `<div class="col-6"><div class="table">`;
+                for (let i = 0; i < maxNum; i++) {
+                    const studentNumber = studentNumbersArray[i];
+                    const studentName = studentNamesArray[studentNumber];
+                    const student = `${studentNumber + 1} ${studentName}`;
+
                     html += `<div class="col-3"><p>${student}</p></div>`;
                 }
+                html += `</div></div>`;
+            }
 
-                console.log(student);
-            });
-
+            createTable(8);
+            createTable(9);
+            createTable(8);
+            createTable(9);
+            createTable(8);
             row.innerHTML = html;
         </script>
     </body>
