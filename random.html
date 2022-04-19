@@ -126,22 +126,23 @@
 
             //     console.log(student);
             // });
-
-            function createTable(maxNum) {
+            let index = 0;
+            function createTable(newMaxNum) {
                 html += `<div class="col-6"><div class="table">`;
-                for (let i = 0; i < maxNum; i++) {
+                for (let i = index; i < index + newMaxNum; i++) {
                     const studentNumber = studentNumbersArray[i];
                     const studentName = studentNamesArray[studentNumber];
                     const student = `${studentNumber + 1} ${studentName}`;
 
                     html += `<div class="col-3"><p>${student}</p></div>`;
                 }
+                index += newMaxNum;
                 html += `</div></div>`;
             }
 
-            createTable(8);
             createTable(9);
-            createTable(8);
+            createTable(9);
+            createTable(9);
             createTable(9);
             createTable(8);
             row.innerHTML = html;
