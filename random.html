@@ -20,8 +20,11 @@
                 border: 1px solid rgb(70, 61, 6);
                 display: flex;
                 flex-wrap: wrap;
+                align-content: flex-start;
                 font-size: 2.5rem;
                 padding: 20px;
+                min-height: 30vh;
+                position: relative;
             }
 
             p {
@@ -29,6 +32,14 @@
                 padding: 10px;
                 border: 1px solid rgb(137, 137, 233);
                 border-radius: 10%;
+            }
+
+            .groupTitle {
+                position: absolute;
+                bottom: 0;
+                right: 10px;
+                padding: 10px 30px;
+                color: crimson;
             }
         </style>
     </head>
@@ -137,6 +148,7 @@
                     html += `<div class="col-3"><p>${student}</p></div>`;
                 }
                 index += newMaxNum;
+                html += `<p class="groupTitle">${Math.ceil(index / 9)}</p>`;
                 html += `</div></div>`;
             }
 
